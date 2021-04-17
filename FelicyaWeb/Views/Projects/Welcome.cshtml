@@ -1,0 +1,101 @@
+﻿@using FelicyaClient.Models
+
+@model WelcomeModel
+
+<div class="row">
+
+    <div class="contentCol">
+        <div id="content">
+            <div class="fade-in">
+                <h2>VELKOMMEN TIL FELICYA</h2>
+                <p>[FEstival LIvsCYklus Analyse]</p>
+            </div>
+        </div>
+
+        <div class="contentCol">
+            <div id="content">
+                <div class="fade-in">
+
+                    <h2>Opret nyt projekt for Roskilde Festival 2021</h2>
+                    <form method="post" asp-action="Welcome" asp-controller="Projects" class="fade-in two">
+                        <label>
+                            <div type="tet" class="label-text">Opbygning LARGE byggeri og scener</div>
+                        </label>
+                        <button type=button onclick="redirectOnClick()">Opret</button>
+                    </form>
+
+                    <form method="post" asp-action="Welcome" asp-controller="Projects" class="fade-in two">
+                        <label>
+                            <div type="tet" class="label-text">Opbygning SMALL Installation/møbeldesign</div>
+                        </label>
+                        <button type=button>Opret</button>
+                    </form>
+
+                    <form method="post" asp-action="Welcome" asp-controller="Projects" class="fade-in two">
+                        <label>
+                            <div type="tet" class="label-text">Opbygning MEDIUM Områdedeco</div>
+                        </label>
+                        <button type=button>Opret</button>
+                    </form>
+
+                    <form method="post" asp-action="Welcome" asp-controller="Projects" class="fade-in two">
+                        <label>
+                            <div type="tet" class="label-text">Logistik bestillinger</div>
+                        </label>
+                        <button type=button>Opret</button>
+                    </form>
+
+                    <form method="post" asp-action="Welcome" asp-controller="Projects" class="fade-in two">
+                        <label>
+                            <div type="tet" class="label-text">Artist booking</div>
+                        </label>
+                        <button type=button>Opret</button>
+                    </form>
+                    <script>
+                        function redirectOnClick() { document.location = 'Projects/Create'; }
+                    </script>
+                </div>
+            </div>
+        </div>
+
+        <div class="contentCol">
+            <div id="content">
+                <div class="fade-in">
+
+                    <h2>RF Året rundt</h2>
+                    <form method="post" asp-action="Welcome" asp-controller="Projects" class="fade-in two">
+                        <label>
+                            <div type="tet" class="label-text">RFX</div>
+                        </label>
+                        <button type=button>Opret</button>
+                    </form>
+
+                    <form method="post" asp-action="Welcome" asp-controller="Projects" class="fade-in two">
+                        <label>
+                            <div type="tet" class="label-text">Vedligehold af pladsen</div>
+                        </label>
+                        <button type=button>Opret</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <div class="contentCol">
+            <div id="content">
+                <div class="fade-in">
+                    <h2>Rediger eksisterende projekt</h2>
+                    <form method="post" asp-action="Welcome" asp-controller="Projects" class="fade-in two">
+                        <label>
+                            <div type="tet" class="label-text">Indtast projektnummer</div>
+                            <input type="text" asp-for="ProjectID" required />
+
+                            @if (ViewData.ModelState.ErrorCount > 0)
+                            { <span for="Email" asp-validation-for="ProjectID" class="alert alert-danger"></span>}
+                        </label>
+                        <button class="signupbutton" type="submit">Rediger</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

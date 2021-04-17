@@ -1,0 +1,108 @@
+﻿@model FelicyaDB.Entities.Project
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Project</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.CreatedOn)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.CreatedOn)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.UpdatedOn)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.UpdatedOn)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ProjectName)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ProjectName)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ProjectLeader)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ProjectLeader)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ProjectOwner)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ProjectOwner)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ProjectDescription)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ProjectDescription)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ProjectNumber)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ProjectNumber)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.BudgetNumber)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.BudgetNumber)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ConstructionLeader)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ConstructionLeader)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.YearOfConstruction)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.YearOfConstruction)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.FestivalDivision)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.FestivalDivision)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Location)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Location)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ConstructionPurpose)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ConstructionPurpose)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.PhysicalSize)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.PhysicalSize)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.PhysicalCapacity)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.PhysicalCapacity)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.ProjectId">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

@@ -1,0 +1,101 @@
+﻿@using FelicyaDB.Enums
+
+@model FelicyaDB.Entities.Project
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h2>Opret nyt projekt</h2>
+
+<h4>Project</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="ProjectName" class="control-label"></label>
+                <input asp-for="ProjectName" class="form-control" />
+                <span asp-validation-for="ProjectName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ProjectLeader" class="control-label"></label>
+                <input asp-for="ProjectLeader" class="form-control" />
+                <span asp-validation-for="ProjectLeader" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ProjectOwner" class="control-label"></label>
+                <input asp-for="ProjectOwner" class="form-control" />
+                <span asp-validation-for="ProjectOwner" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ProjectDescription" class="control-label"></label>
+                <input asp-for="ProjectDescription" class="form-control" />
+                <span asp-validation-for="ProjectDescription" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ProjectNumber" class="control-label"></label>
+                <input asp-for="ProjectNumber" class="form-control" />
+                <span asp-validation-for="ProjectNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="BudgetNumber" class="control-label"></label>
+                <input asp-for="BudgetNumber" class="form-control" />
+                <span asp-validation-for="BudgetNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ConstructionLeader" class="control-label"></label>
+                <input asp-for="ConstructionLeader" class="form-control" />
+                <span asp-validation-for="ConstructionLeader" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="YearOfConstruction" class="control-label"></label>
+                <input asp-for="YearOfConstruction" class="form-control" />
+                <span asp-validation-for="YearOfConstruction" class="text-danger"></span>
+            </div>
+           
+            <div class="form-group">
+                <label asp-for="FestivalDivision" class="col-md-2 control-label"></label>
+                <div class="col-md-10">
+                    <select asp-for="FestivalDivision" asp-items="Html.GetEnumSelectList<FestivalDivisionEnum>().Skip(1)">
+                        <option selected="selected" value="">Please select</option>
+                    </select>
+                    <span asp-validation-for="FestivalDivision" class="text-danger" />
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Location" class="control-label"></label>
+                <select asp-for="Location" asp-items="Html.GetEnumSelectList<LocationEnum>().Skip(1)" class="form-control"></select>
+                <span asp-validation-for="Location" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ConstructionPurpose" class="control-label"></label>
+                <input asp-for="ConstructionPurpose" class="form-control" />
+                <span asp-validation-for="ConstructionPurpose" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PhysicalSize" class="control-label"></label>
+                <input asp-for="PhysicalSize" class="form-control" />
+                <span asp-validation-for="PhysicalSize" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PhysicalCapacity" class="control-label"></label>
+                <input asp-for="PhysicalCapacity" class="form-control" />
+                <span asp-validation-for="PhysicalCapacity" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

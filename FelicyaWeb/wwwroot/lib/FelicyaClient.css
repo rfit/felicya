@@ -1,0 +1,702 @@
+﻿html {
+    min-height: 100%;
+    font-size: 21px;
+}
+
+body {
+    margin: 0px;
+    width: 100%;
+    height: 100%;
+    /* padding-bottom: 25px; */
+    font-size: 17px;
+    font-size: calc(12px + .3vw);
+    font-family: "4000";
+    -webkit-font-smoothing: antialiased;
+    font-smoothing: antialiased;
+    color: #555;
+}
+
+html body .row {
+    margin: initial 0;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.va {
+    position: relative;
+    top: 25vh;
+    text-align: center;
+}
+
+/** FONT **/
+
+@font-face {
+    font-family: "4000";
+    src: url(fonts/4000-Regular.otf) format("opentype");
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: "4000-italic";
+    src: url(fonts/4000-Italic.otf) format("opentype");
+    font-weight: 400;
+    font-style: italic
+}
+
+@font-face {
+    font-family: "4000-bold";
+    src: url(fonts/4000-Bold.otf) format("opentype");
+    font-weight: 700
+}
+
+@font-face {
+    font-family: "4000-heavy";
+    src: url(fonts/4000-Heavy.otf) format("opentype");
+    font-weight: 900
+}
+
+@font-face {
+    font-family: "4000-heavy-right";
+    src: url(fonts/4000-HeavyRight.otf) format("opentype");
+    font-weight: 900;
+    font-style: italic
+}
+
+@font-face {
+    font-family: "4000-heavy-left";
+    src: url(fonts/4000-HeavyLeft.otf) format("opentype");
+    font-weight: 900;
+    font-style: italic
+}
+
+.contentParent {
+    width: 100vw;
+    padding: 48px 5vw;
+    border-top: 4px #222 inset;
+    border-left: none;
+}
+
+.contentCol {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+    .contentCol #content {
+        width: 100%;
+    }
+
+
+
+
+[class*="col-"]:nth-child(1) {
+    /* Full height */
+    /* height: 100%;
+    min-height: 100vh; */
+    /* Create the parallax scrolling effect */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+
+[id*="welcome"] {
+    position: relative;
+    width: 100%;
+    min-height: 75vh;
+    background-color: #222;
+    color: white;
+    padding-bottom: 48px;
+    /* The image used */
+    background-image: url("../images/WuTangClan-ORANGE-Stage-FlemmingBoJensen-7.jpg");
+}
+
+[id*="welcomeSub"] {
+    position: relative;
+    top: 0;
+    left: 0;
+    height: 20vh;
+    min-height: 20vh;
+    width: 100vw;
+}
+
+.fade-inR2Sub {
+    padding width: 100vw;
+    margin-left: 0vw;
+}
+/* [id*="title"] { padding-top: 50px; } */
+
+[id*="content"] {
+    padding-top: 0px;
+}
+
+/* SCROLL TO TOP */
+
+#myBtn {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    right: 30px;
+    z-index: 99;
+    font-size: 18px;
+    border: none;
+    outline: none;
+    background-color: transparent;
+    color: black;
+    cursor: pointer;
+    padding: 15px;
+    border-radius: 4px;
+}
+
+    #myBtn:hover {
+        color: #ee7203;
+    }
+
+/* TEXT */
+
+h1 {
+    font-family: "4000-heavy-right";
+    font-size: 2.117647058823529em;
+    line-height: .833333333333333em;
+    text-transform: uppercase;
+    font-weight: 900;
+    color: #ee7203;
+    column-span: all;
+    -webkit-column-span: all;
+}
+
+[id*="welcome"] h1 {
+    font-size: 2.117647058823529em;
+    line-height: .833333333333333em;
+    text-transform: uppercase;
+    font-weight: 900;
+    color: #fff;
+    column-span: all;
+    -webkit-column-span: all;
+}
+
+p {
+    font-family: "4000";
+    font-size: 17px;
+    line-height: 1.411764705882353em;
+}
+
+h3, h2 {
+    font-family: "4000-bold";
+    text-transform: uppercase;
+}
+
+    h3, h2 a, p a {
+        color: #ee7203;
+        background-color: transparent;
+        text-align: center;
+        /* border-bottom: 1px solid; */
+        text-decoration: none;
+    }
+
+h3, h2, button {
+    font-family: "4000-bold";
+}
+
+    h2 a, p a:hover {
+        border-bottom: none;
+    }
+
+.column {
+    column-count: 2;
+    column-gap: 400px;
+    column-fill: balance;
+}
+
+@media screen and (max-width: 1180px) {
+    .column {
+        column-count: 1;
+    }
+}
+
+.closed {
+    padding: 2vh;
+}
+
+/* BUTTONS */
+
+.signupbutton {
+    height: 48px;
+    width: 100%;
+    max-width: 250px;
+    background-color: #333333;
+    border: 2px solid white;
+    border-radius: 24px;
+    color: white;
+    cursor: pointer;
+    font-size: 20px;
+    margin-top: 24px;
+    margin: 24px 7.5px 0;
+    /* padding: 15px 30px; */
+    text-transform: uppercase;
+    transition: all 200ms;
+}
+
+    .signupbutton:hover, .signupbutton:focus {
+        background-color: #ee7203;
+        color: white;
+        outline: 0;
+    }
+
+
+/* LOGO */
+
+.rf-logo {
+    position: absolute;
+    top: 24px;
+    right: 24px;
+    width: 48px;
+    height: 36px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPScxMCcgaGVpZ2h0PScxMCcgdmlld0JveD0nMCAwIDE1OS40IDk3LjInPjxwYXRoIGZpbGw9J2JsYWNrJyBkPSdNMTIxLjMsNy4xaC0xLjFjLTUuMyw5LTEzLjgsMTUuNy0yMy40LDE4LjdjLTE5LjMsNi4yLTQwLjgtNC41LTU0LjQtMjUuMWgtMS44QzM4LjQsMjcuMywyMy4yLDQ5LjcsMC40LDY1LjN2MS40YzcuMy0yLjYsMTgtMi4xLDIzLjIsMWM4LjQsNS4xLDEyLjcsMTUuNiwxMi45LDI4LjdoMmM4LjMtMzQuMSwzMi4zLTU4LjMsNjAuMS01Ni4zYzIyLjcsMS42LDM3LjgsMTUuNCw0NS45LDQxLjFoMS4xYzIuNC0zLDcuNS03LjYsMTIuOS04LjJ2LTAuOUMxNDEuNiw1OS44LDEyNC40LDMzLjgsMTIxLjMsNy4xeicvPjwvc3ZnPg);
+}
+
+/*.thumbnail a:hover {
+    border-bottom: 0px;
+    display: block !important;
+}*/
+
+/* KEYFRAMES */
+
+/* make keyframes that tell the start state and the end state of our object */
+
+@-webkit-keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@-moz-keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInRight2 {
+    from {
+        width: 60%;
+    }
+
+    to {
+        width: 100%;
+    }
+}
+
+.fade-in {
+    opacity: 0; /* make things invisible upon start */
+    -webkit-animation: fadeIn ease-in 1s; /* call our keyframe named fadeIn, use animattion ease-in and repeat it only 1 time */
+    -moz-animation: fadeIn ease-in 1s;
+    animation: fadeIn ease-in 1s;
+    -webkit-animation-fill-mode: forwards; /* this makes sure that after animation is done we remain at the last keyframe value (opacity: 1)*/
+    -moz-animation-fill-mode: forwards;
+    animation-fill-mode: forwards;
+    -webkit-animation-duration: 1s;
+    -moz-animation-duration: 1s;
+    animation-duration: 1s;
+}
+
+.fade-inR {
+    display: block;
+    height: 20vh;
+    min-height: 20vh;
+    width: 100vw;
+}
+
+.fade-inR2 {
+    animation: fadeInRight2 ease-in 1s;
+    animation-fill-mode: forwards;
+    animation-duration: 1s;
+    animation-delay: 0.1s;
+}
+
+.fade-in.one {
+    -webkit-animation-delay: 0.7s;
+    -moz-animation-delay: 0.7s;
+    animation-delay: 0.7s;
+}
+
+.fade-in.two {
+    -webkit-animation-delay: 1.2s;
+    -moz-animation-delay: 1.2s;
+    animation-delay: 1.2s;
+}
+
+.fade-in.three {
+    -webkit-animation-delay: 1.6s;
+    -moz-animation-delay: 1.6s;
+    animation-delay: 1.6s;
+}
+
+/** TOOLTIP **/
+
+.tooltip {
+    display: inline-block;
+    position: absolute;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 600;
+}
+
+    .tooltip h2 {
+        margin: 12px 0;
+    }
+
+    .tooltip .right {
+        box-sizing: border-box;
+        position: absolute;
+        display: flex;
+        height: 256px;
+        width: 60vw;
+        max-width: 256px;
+        top: 256px;
+        right: 0;
+        padding: 8px;
+        opacity: 0;
+        visibility: hidden;
+        overflow-y: auto;
+        overflow-x: hidden;
+        background-color: #555;
+        color: #fff;
+        font-size: 13px;
+        border-radius: 12px;
+        box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+        transform: translate(0, -100%);
+        transition: opacity 0.8s;
+        z-index: 600;
+    }
+
+    .tooltip:hover .right, .tooltip:active .right {
+        visibility: visible;
+        opacity: 1;
+    }
+
+
+
+    .tooltip .text-content {
+        padding: 8px 16px;
+    }
+
+.footer p a {
+    z-index: 150;
+    padding-right: 10px;
+}
+
+/* reg */
+
+form {
+    text-align: center;
+}
+
+label {
+    display: block;
+    letter-spacing: 4px;
+    padding-top: 60px;
+    text-align: center;
+}
+
+    label .label-text {
+        color: white;
+        cursor: text;
+        font-size: 21px;
+        line-height: 21px;
+        text-transform: uppercase;
+        -moz-transform: translateY(-34px);
+        -ms-transform: translateY(-34px);
+        -webkit-transform: translateY(-34px);
+        transform: translateY(-34px);
+        transition: all 0.3s;
+    }
+
+    label input {
+        background-color: transparent;
+        border: 0;
+        border-bottom: 2px solid white;
+        color: white;
+        font-size: 14px;
+        letter-spacing: -1px;
+        outline: 0;
+        padding: 5px 20px;
+        text-align: center;
+        transition: all 0.3s;
+        width: 250px;
+    }
+
+        label input:focus {
+            max-width: 100%;
+            width: 70%;
+            font-size: 21px;
+        }
+
+            label input:focus + .label-text {
+                color: white;
+                font-size: 13px;
+                -moz-transform: translateY(-74px);
+                -ms-transform: translateY(-74px);
+                -webkit-transform: translateY(-74px);
+                transform: translateY(-74px);
+            }
+
+        label input:valid + .label-text {
+            font-size: 13px;
+            -moz-transform: translateY(-74px);
+            -ms-transform: translateY(-74px);
+            -webkit-transform: translateY(-74px);
+            transform: translateY(-74px);
+        }
+
+.form .label, .form .checkbox-input + label, .form .option-input + label, .form .text-input {
+    padding: 0.75em 1em;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    outline: none;
+    line-height: normal;
+    border-radius: 0;
+    border: none;
+    background: none;
+    display: block;
+    text-align: left;
+}
+
+.form .label {
+    font-family: "4000-bold";
+    font-size: 1.5em;
+    padding-top: 0;
+    padding-left: 0;
+    letter-spacing: 0.025em;
+    line-height: 1.25;
+    position: relative;
+    z-index: 100;
+    color: #555;
+}
+
+.form .required .label:after {
+    content: " *";
+    color: #E8474C;
+    font-weight: normal;
+    font-size: 0.75em;
+    vertical-align: top;
+}
+
+.form .checkbox-input + label, .form .option-input + label, .form .text-input {
+    line-height: normal;
+    width: 100%;
+    position: relative;
+}
+
+.form .text-input {
+    border-bottom: 1px black solid;
+    height: 36px;
+}
+
+    .form .checkbox-input + label:placeholder, .form .option-input + label:placeholder, .form .text-input:placeholder, .form .textarea:placeholder, .form .select:placeholder, .customSelect:placeholder {
+        color: black;
+    }
+
+    .form .checkbox-input + label:-webkit-autofill, .form .option-input + label:-webkit-autofill, .form .text-input:-webkit-autofill {
+    }
+
+    .form .checkbox-input + label:not(:focus):not(:active).error, .form .option-input + label:not(:focus):not(:active).error, .form .text-input:not(:focus):not(:active).error, .form .textarea:not(:focus):not(:active).error, .form .select:not(:focus):not(:active).error, .customSelect:not(:focus):not(:active).error, .error .form .checkbox-input + label:not(:focus):not(:active), .form .error .checkbox-input + label:not(:focus):not(:active), .error .form .option-input + label:not(:focus):not(:active), .form .error .option-input + label:not(:focus):not(:active), .error .form .text-input:not(:focus):not(:active), .form .error .text-input:not(:focus):not(:active), .error .form .textarea:not(:focus):not(:active), .form .error .textarea:not(:focus):not(:active), .error .form .select:not(:focus):not(:active), .form .error .select:not(:focus):not(:active), .error .customSelect:not(:focus):not(:active) {
+        background-size: 8px 8px;
+        background-image: linear-gradient(135deg, rgba(232, 71, 76, 0.5), rgba(232, 71, 76, 0.5) 25%, transparent 25%, transparent 50%, rgba(232, 71, 76, 0.5) 50%, rgba(232, 71, 76, 0.5) 75%, transparent 75%, transparent);
+        background-repeat: repeat;
+    }
+
+.form:not(.has-magic-focus) .checkbox-input + label:active, .form:not(.has-magic-focus) .option-input + label:active, .form:not(.has-magic-focus) .text-input:active, .form:not(.has-magic-focus) .checkbox-input + label:focus, .form:not(.has-magic-focus) .option-input + label:focus, .form:not(.has-magic-focus) .text-input:focus {
+    background: #f2f2f2;
+    transition: all 0.3s;
+}
+
+.form .checkbox-input, .form .option-input {
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: 0px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+}
+
+    .form .checkbox-input + label, .form .option-input + label {
+        display: inline-block;
+        width: auto;
+        position: relative;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        cursor: pointer;
+        border-bottom: 1px solid #fff;
+        margin-bottom: 0;
+    }
+
+    .form .checkbox-input:focus + label, .form .option-input:focus + label, .form .checkbox-input:active + label, .form .option-input:active + label {
+        color: black;
+        border-bottom: 1px solid #fff;
+    }
+
+    .form .checkbox-input:checked + label, .form .option-input:checked + label {
+        color: black;
+        font-weight: 900;
+        border-bottom: 1px solid #ee7203;
+    }
+
+.form {
+    margin: 0 auto;
+    position: relative;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+}
+
+    .form .field {
+        width: 100%;
+        padding-right: 1vw;
+        padding-bottom: 24px;
+    }
+
+@media screen and (min-width: 1400px) {
+    .form .field.half {
+        width: calc(33% - 1px);
+    }
+}
+
+.form .checkboxes, .form .options {
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+}
+
+.form .checkbox, .form .option {
+    float: left;
+    margin: 1px;
+}
+
+.checkbox, .option {
+    border-bottom: 0px solid transparent;
+    height: 42px;
+    border-radius: 4px;
+    margin-bottom: 0;
+}
+
+    .checkbox:hover, .option:hover {
+        background: #f2f2f2;
+        border-bottom: 1px solid #f27200;
+    }
+
+
+
+.panelElement {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url(../images/rf19_people_wallpaper.jpg);
+    float: unset
+}
+
+
+@media screen and (min-width: 576px) {
+    .contentParent {
+        height: 100vh;
+        width: 60vw;
+        margin-left: 40vw;
+        padding: 48px 5vw 0;
+        border-top: none;
+        border-left: 4px #222 inset;
+    }
+
+    #welcome {
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100vh;
+        width: 40vw;
+    }
+
+    .contentCol #content {
+        width: 50%;
+        padding-left: 7.5px;
+    }
+
+        .contentCol #content:first-child {
+            padding-left: 0;
+            padding-right: 7.5px;
+        }
+
+    .fade-inR {
+        display: block;
+        width: 10%;
+        animation: fadeInRight ease-in 1s;
+        animation-fill-mode: forwards;
+        animation-duration: 1s;
+        animation-delay: 0.1s;
+    }
+
+    .fade-inR2 {
+        width: 10%;
+        margin-left: 10%;
+        padding: 48px 5vw 0;
+    }
+
+    @keyframes fadeInRight {
+        from {
+            width: 40%;
+        }
+
+        to {
+            width: 10%;
+        }
+    }
+
+    @keyframes fadeInRight2 {
+        from {
+            width: 60%;
+        }
+
+        to {
+            width: 90%;
+        }
+    }
+
+    [id*="welcomeSub"] {
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100vh;
+        width: 10vw;
+    }
+
+    .fade-inR2Sub {
+        width: 90vw;
+        margin-left: 10vw;
+    }
+}

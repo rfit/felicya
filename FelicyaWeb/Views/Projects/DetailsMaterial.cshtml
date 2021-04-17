@@ -1,0 +1,61 @@
+﻿@model IEnumerable<FelicyaDB.Entities.Material>
+
+@{
+    ViewData["Title"] = "DetailsMaterial";
+}
+
+<h2>Projekt og tilknyttede materialer</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Trætype</th>
+            <th>Navn</th>
+            <th>Antal enheder</th>
+            <th>Højde</th>
+            <th>Længde</th>
+            <th>Bredde</th>
+            <th>CO2 Aftryk</th>
+            <th>Formål</th>
+            <th>Disposal</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Type)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NumberOfUnits)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Height)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Length)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Width)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CO2Measure)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Purpose)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Disposal)
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>
+
+<div>
+    <a asp-action="Index">Tilbage til projektliste</a>
+</div>

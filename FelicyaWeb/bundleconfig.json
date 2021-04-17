@@ -1,0 +1,10 @@
+﻿[
+  {
+    "outputFileName": "wwwroot/css/site.css",
+    "inputFiles": [
+      "wwwroot/lib/font-awesome/css/fontawesome.min.css",
+      "wwwroot/lib/font-awesome/css/solid.min.css",
+      "wwwroot/lib/FelicyaClient.css"
+    ]
+  }
+]

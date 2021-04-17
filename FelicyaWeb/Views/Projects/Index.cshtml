@@ -1,0 +1,108 @@
+﻿@model IEnumerable<FelicyaDB.Entities.Project>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Felicyas samlede liste af projekter</h2>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ProjectName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ProjectLeader)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ProjectOwner)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ProjectDescription)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ProjectNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BudgetNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ConstructionLeader)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.YearOfConstruction)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FestivalDivision)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Location)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ConstructionPurpose)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PhysicalSize)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PhysicalCapacity)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProjectName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProjectLeader)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProjectOwner)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProjectDescription)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProjectNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BudgetNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ConstructionLeader)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.YearOfConstruction)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FestivalDivision)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Location)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ConstructionPurpose)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PhysicalSize)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PhysicalCapacity)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.ProjectId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.ProjectId">Details</a> |
+                <a asp-action="DetailsMaterial" asp-route-id="@item.ProjectId">Materialedetaljer</a> |
+                <a asp-action="Delete" asp-route-id="@item.ProjectId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
