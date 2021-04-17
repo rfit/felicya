@@ -9,6 +9,8 @@ using FelicyaClient.Models;
 using FelicyaClient.Helpers;
 using Microsoft.AspNetCore.Http;
 using FelicyaDB.Enums;
+using FelicyaShared.Models;
+using FelicyaShared.Helpers;
 
 namespace FelicyaClient.Controllers
 {
@@ -19,7 +21,7 @@ namespace FelicyaClient.Controllers
 
         public ProjectsController(FelicyaContext context)
         {
-            _context = context;
+          _context = context;
         }
 
         public ActionResult Welcome()
@@ -88,7 +90,8 @@ namespace FelicyaClient.Controllers
         // GET: Projects/Create
         public IActionResult Create()
         {
-           return View();
+          ProjectBaseModel model = new ProjectBaseModel();
+          return View("Create", model);
         }
 
         // POST: Projects/Create
@@ -96,18 +99,19 @@ namespace FelicyaClient.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("ProjectId,ProjectName,ProjectLeader,ProjectOwner,ProjectDescription,ProjectNumber,BudgetNumber,ConstructionLeader,YearOfConstruction,FestivalDivision,Location,ConstructionPurpose,PhysicalSize,PhysicalCapacity")] Project project)
+        public async Task<IActionResult> Create([Bind("ProjectId,ProjectName,ProjectLeader,ProjectOwner,ProjectDescription,ProjectNumber,BudgetNumber,ConstructionLeader,YearOfConstruction,FestivalDivision,Location,ConstructionPurpose,PhysicalSize,PhysicalCapacity")] ProjectBaseModel model)
         {
-          if (ModelState.IsValid)
-          {
-              project.ProjectId = Guid.NewGuid();
-              HttpContext.Session.SetString(SessionProjectKey, project.ProjectId.ToString());
-              _context.Add(project);
-              await _context.SaveChangesAsync();
-              return RedirectToAction(nameof(CreateMaterial));
-              // return RedirectToAction(nameof(Index));
-          }
-          return View(project);
+          if (!ModelState.IsValid)
+            return View(model);
+
+          Project project = new Project();
+          SharedMapper.Mapper.Map(model, project);
+          _context.Add(project);
+
+          await _context.SaveChangesAsync();
+           
+          HttpContext.Session.SetString(SessionProjectKey, project.ProjectId.ToString());
+          return RedirectToAction(nameof(CreateMaterial));
         }
 
         // GET: Projects/Create

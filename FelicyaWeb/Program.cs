@@ -1,13 +1,9 @@
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore;
 using Microsoft.Extensions.DependencyInjection;
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using Microsoft.EntityFrameworkCore;
 using FelicyaDB;
 
@@ -19,7 +15,7 @@ namespace FelicyaClient
     {
       var host = CreateWebHostBuilder(args).Build();
 
-     /* using (var scope = host.Services.CreateScope())
+      using (var scope = host.Services.CreateScope())
       {
         var services = scope.ServiceProvider;
 
@@ -34,7 +30,7 @@ namespace FelicyaClient
           var logger = services.GetRequiredService<ILogger<Program>>();
           logger.LogError(ex, "An error occurred seeding the DB.");
         }
-      }*/
+      }
 
       host.Run();
     }
