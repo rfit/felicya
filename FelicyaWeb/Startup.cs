@@ -42,57 +42,12 @@ namespace FelicyaClient
       services.AddDbContext<FelicyaContext>(options =>
               options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 
-      //services.AddRfHealthChecks();
-
-      // services.AddSingleton<BundleHelper>();
-      //services.AddScoped<EventManager>();
-
-      /*if (Environment.IsDevelopment())
-      {
-        // Hangfire does not run before a hosted service is run, so it doesn't configure properly.
-        // TODO: Figure out how to seed the DB & not do this ..
-        JobStorage.Current = new MemoryStorage();
-
-        services.AddDbContext<FelicyaContext>(builder => builder
-                .UseInMemoryDatabase("rf-rekrut"))
-            .UseAfterSaveChanges<AfterSaveChangesService>()
-            .AddScoped<IDatabaseSeeder, RfContextSeeder>();
-
-        services.AddHangfire(configuration => configuration
-            .UseMemoryStorage());
-      }
-      else
-      {
-        services.AddDbContext<FelicyaContext>(builder => builder.UseMySql(DatabaseConnectionString, DbConstants.ServerVersion))
-            .UseAfterSaveChanges<AfterSaveChangesService>()
-            .AddScoped<RfContextNoTracking>();
-
-        services.AddHangfire(configuration => configuration.UseStorage(new MySqlStorage(DatabaseConnectionString, new MySqlStorageOptions())));
-      }
-
-      services
-          .Configure<AutoProxyOptions>(Configuration.GetSection("ProxySupport"))
-          .AddAutoProxyMiddleware();
-
-      services.AddMemoryCache();
-      services.AddScoped<ConfigurationManager>();
-
-      services.AddScoped<AutoMarkService>();
-      services.Configure<GDPROptions>(Configuration.GetSection("GDPR"));
-
-      */
       services.AddSession(options => options.IdleTimeout = TimeSpan.FromMinutes(10));
     }
     #endregion
 
-
-    // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
     public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
     {
-     // app.UseAutoProxyMiddleware();
-     // app.UseHealthChecks("/health");
-      //app.UseRfHealthchecks();
-      
       if (env.IsDevelopment())
       {
         app.UseDeveloperExceptionPage();
@@ -103,7 +58,6 @@ namespace FelicyaClient
       {
         app.UseExceptionHandler("/Home/Error");
       }
-
 
       app.UseRouting();
       app.UseCors();
@@ -123,24 +77,6 @@ namespace FelicyaClient
                endpoints.MapControllerRoute("default", "{controller=Projects}/{action=Welcome}/{id?}");
              });
 
-      /*app.UseMvc(routes =>
-      {
-        routes.MapRoute(
-            name: "closedDown",
-            template: "ClosedDown/{action=Index}",
-            defaults: new { controller = "ClosedDown" });
-        routes.MapRoute(
-            name: "default",
-            template: "{controller=Projects}/{action=Index}/{id?}");
-      });*/
-
-     /* // Setup hangfire. Note: This is a complete hack to ensure we can use the hangfire client
-      app.UseHangfireServer(new BackgroundJobServerOptions
-      {
-        Queues = new[] { "DUMMY_QUEUE" },
-        WorkerCount = 1,
-        ServerName = typeof(Startup).Assembly.GetName().Name
-      });*/
     }
   }
 }
